@@ -6,13 +6,17 @@ import { firebaseConfig } from '../../constants/firebaseConfig'
 
 var app : firebase.app.App = firebase.initializeApp(firebaseConfig)
 
+interface IFastCastUserInfo {
+    email: string | null,
+    displayName: string | null
+}
 class Firebase {
     auth: firebase.auth.Auth
     provider: firebase.auth.GoogleAuthProvider
-    session?: {
-        token:  string | undefined
-        user: firebase.User | null
-    }
+    // session?: {
+    //     token:  string | undefined
+    //     user: firebase.User | null
+    // }
 
     constructor() {
         
@@ -53,17 +57,20 @@ class Firebase {
             var token: string | undefined= credential.accessToken;
             var user: firebase.User | null = result.user;
 
-            return { token, user }
-        }).then(result => { 
-            if (result.token !== undefined && result.user !== null) {
-                this.session = result
-            } 
-            
-            console.log(`Successfully logged in ${this.session}`)
-        }, function(error) {
-            console.log(`Could not login. Error ${error}`)
-            return error
+            // return { token, user }
+            console.log({token})
+            console.log({user})
         })
+        // .then(result => { 
+        //     if (result.token !== undefined && result.user !== null) {
+        //         this.session = result
+        //     } 
+            
+        //     console.log(`Successfully logged in ${this.session}`)
+        // }, function(error) {
+        //     console.log(`Could not login. Error ${error}`)
+        //     return error
+        // })
         // this.auth.signInWithPopup(this.provider).then(function(result) {
         //     let credential: firebase.auth.OAuthCredential = (<firebase.auth.OAuthCredential>result.credential);
         //     var token: string | undefined= credential.accessToken;
@@ -79,16 +86,24 @@ class Firebase {
 
     logout = () => this.auth.signOut()
 
-    isUserLoggedIn = () => {
-        if (this.session) {
-            if (this.auth.currentUser !== null) return true
-        }
+    isUserLoggedIn: () => boolean = () => {
+        // if (this.session) {
+        if (this.auth.currentUser !== null) {
+            return true
+        } 
+        // }
         return false
     }
 
     /**
      * Profile functions
-     * - getUserName
-     * - getUserEmail
+     * - getUserInfo
      */
+    getUserName: () => IFastCastUserInfo = () => {
+        if (this.auth.currentUser) {
+            const { email, displayName  } = this.auth.currentUser
+            return { email, displayName }
+        }
+        return { email: null, displayName: null }
+    }
 }
