@@ -43,10 +43,12 @@ class Firebase {
      * Auth functions
      * - Login
      * - Logout
-     * - isLoggedIn
+     * - isUserLoggedIn
      */
     login = () => {
-        this.auth.signInWithPopup(this.provider).then(function(result) {
+        this.auth.signInWithRedirect(this.provider)
+        
+        this.auth.getRedirectResult().then(function(result) {
             let credential: firebase.auth.OAuthCredential = (<firebase.auth.OAuthCredential>result.credential);
             var token: string | undefined= credential.accessToken;
             var user: firebase.User | null = result.user;
@@ -56,16 +58,33 @@ class Firebase {
             if (result.token !== undefined && result.user !== null) {
                 this.session = result
             } 
-        })
-
-        if (this.session) {
+            
             console.log(`Successfully logged in ${this.session}`)
-        }
-        else {
-            console.log("Could not login")
-        }
+        }, function(error) {
+            console.log(`Could not login. Error ${error}`)
+            return error
+        })
+        // this.auth.signInWithPopup(this.provider).then(function(result) {
+        //     let credential: firebase.auth.OAuthCredential = (<firebase.auth.OAuthCredential>result.credential);
+        //     var token: string | undefined= credential.accessToken;
+        //     var user: firebase.User | null = result.user;
+
+        //     return { token, user }
+        // }).then(result => { 
+        //     if (result.token !== undefined && result.user !== null) {
+        //         this.session = result
+        //     } 
+        // })
     }
 
+    logout = () => this.auth.signOut()
+
+    isUserLoggedIn = () => {
+        if (this.session) {
+            if (this.auth.currentUser !== null) return true
+        }
+        return false
+    }
 
     /**
      * Profile functions
