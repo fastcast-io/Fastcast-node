@@ -9,6 +9,10 @@ var app : firebase.app.App = firebase.initializeApp(firebaseConfig)
 class Firebase {
     auth: firebase.auth.Auth
     provider: firebase.auth.GoogleAuthProvider
+    session?: {
+        token:  string | undefined
+        user: firebase.User | null
+    }
 
     constructor() {
         
@@ -35,5 +39,37 @@ class Firebase {
         })
     }
 
+    /**
+     * Auth functions
+     * - Login
+     * - Logout
+     * - isLoggedIn
+     */
+    login = () => {
+        this.auth.signInWithPopup(this.provider).then(function(result) {
+            let credential: firebase.auth.OAuthCredential = (<firebase.auth.OAuthCredential>result.credential);
+            var token: string | undefined= credential.accessToken;
+            var user: firebase.User | null = result.user;
 
+            return { token, user }
+        }).then(result => { 
+            if (result.token !== undefined && result.user !== null) {
+                this.session = result
+            } 
+        })
+
+        if (this.session) {
+            console.log(`Successfully logged in ${this.session}`)
+        }
+        else {
+            console.log("Could not login")
+        }
+    }
+
+
+    /**
+     * Profile functions
+     * - getUserName
+     * - getUserEmail
+     */
 }
