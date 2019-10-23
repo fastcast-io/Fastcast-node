@@ -1,4 +1,4 @@
-import React, { useState, ProviderProps, Provider } from 'react'
+import React, { useState, ProviderProps, useContext } from 'react'
 import { Firebase } from './firebase'
 import { User } from 'firebase'
 
@@ -13,7 +13,11 @@ interface IAuthProvided {
 const FirebaseContext = React.createContext< React.ContextType<any> >(null);
 
 export const FirebaseProvider = FirebaseContext.Provider;
-export const FirebaseConsumer = FirebaseContext.Consumer;
+// export const FirebaseConsumer = FirebaseContext.Consumer;
+
+export function useAuth() {
+    return useContext(FirebaseContext)
+}
 
 
 export function AuthProvider({children, value }:ProviderProps<Object>) {
