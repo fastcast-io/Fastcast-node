@@ -1,8 +1,14 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
+import { useAuth } from '../components/firebase'
 
-const Home = () => (
+const Home = () => { 
+  const auth = useAuth()
+
+  console.log(auth)
+
+  return (
   <div>
     <Head>
       <title>Home</title>
@@ -59,6 +65,6 @@ const Home = () => (
       }
     `}</style> */}
   </div>
-)
+)}
 
 export default Home
