@@ -10,7 +10,12 @@ interface IFastCastUserInfo {
     email: string | null,
     displayName: string | null
 }
-class Firebase {
+
+type IFastCastUserInfoAll = IFastCastUserInfo | (() => IFastCastUserInfo)
+type IBool = Boolean | (() => Boolean)
+type IVoidAll = void | (() => void)
+
+export class Firebase {
     auth: firebase.auth.Auth
     provider: firebase.auth.GoogleAuthProvider
     // session?: {
@@ -49,7 +54,7 @@ class Firebase {
      * - Logout
      * - isUserLoggedIn
      */
-    login = () => {
+    login: IVoidAll = () => {
         this.auth.signInWithRedirect(this.provider)
         
         this.auth.getRedirectResult().then(function(result) {
@@ -86,7 +91,7 @@ class Firebase {
 
     logout = () => this.auth.signOut()
 
-    isUserLoggedIn: () => boolean = () => {
+    isUserLoggedIn: IBool = () => {
         // if (this.session) {
         if (this.auth.currentUser !== null) {
             return true
@@ -99,7 +104,7 @@ class Firebase {
      * Profile functions
      * - getUserInfo
      */
-    getUserName: () => IFastCastUserInfo = () => {
+    getUserName: IFastCastUserInfoAll = () => {
         if (this.auth.currentUser) {
             const { email, displayName  } = this.auth.currentUser
             return { email, displayName }
