@@ -10,16 +10,13 @@ interface IAuthProvided {
 
 // type IAuthProviderProps =  //& PropsWithChildren<Object> & withFirebaseProps 
 
-const FirebaseContext = React.createContext< React.ContextType<any> | null >(null);
+const FirebaseContext = React.createContext< React.ContextType<any> >(null);
 
 export const FirebaseProvider = FirebaseContext.Provider;
 export const FirebaseConsumer = FirebaseContext.Consumer;
 
-// let test: IAuthProviderProps = {
-    
-// }
 
-function AuthProvider({children, value }:ProviderProps<Object>) {
+export function AuthProvider({children, value }:ProviderProps<Object>) {
     const [isLoggedIn, setIsLoggedIn ] = useState(false)
     const [currentUser, setCurrentUser ] = useState<User | null>(null)
     
@@ -46,4 +43,3 @@ function AuthProvider({children, value }:ProviderProps<Object>) {
         </FirebaseProvider>
     )
 }
-{/* // export const withFirebase = <P extends object>(Component: React.ComponentType<P>) */}
