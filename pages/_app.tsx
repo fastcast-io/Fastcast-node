@@ -13,7 +13,7 @@ const getInitialProps = async ({ Component, ctx }: AppContext): Promise<AppProps
     // return ({ ...pageProps } as AppProps)
 }
 
-class MyApp extends App<AppProps<any>> {
+export default class MyApp extends App<AppProps<any>> {
     static getInitialProps = getInitialProps
 
     render() {

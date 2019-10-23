@@ -1,10 +1,12 @@
 import * as firebase from 'firebase'
-
 import 'firebase/auth'
 // import 'firebase/firestore'
 import { firebaseConfig } from '../../constants/firebaseConfig'
 
-var app : firebase.app.App = firebase.initializeApp(firebaseConfig)
+if (firebase.apps.length === 0) {
+    var app : firebase.app.App = firebase.initializeApp(firebaseConfig)
+}
+
 
 interface IFastCastUserInfo {
     email: string | null,
