@@ -1,12 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
-import { useAuth } from '../components/firebase'
+// import { useAuth } from '../components/firebase'
 
-const Home = () => { 
-  const auth = useAuth()
-
-  console.log(auth)
+const Home = () => {
 
   return (
   <div>

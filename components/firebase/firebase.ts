@@ -7,7 +7,7 @@ if (firebase.apps.length === 0) {
     var app : firebase.app.App = firebase.initializeApp(firebaseConfig)
 }
 
-console.log({ firebaseConfig })
+// console.log({ firebaseConfig })
 interface IFastCastUserInfo {
     email: string | null,
     displayName: string | null
