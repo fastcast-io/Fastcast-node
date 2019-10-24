@@ -11,7 +11,11 @@ interface IFastCastUserInfo {
     displayName: string | null
 }
 
-type IFastCastUserInfoAll = IFastCastUserInfo | (() => IFastCastUserInfo)
+interface IFastCastUserInfoAll {
+    (): IFastCastUserInfo
+}
+
+// type IFastCastUserInfoAll = IFastCastUserInfo | (() => IFastCastUserInfo)
 type IBool = Boolean | (() => Boolean)
 type IVoidAll = void | (() => void)
 
@@ -104,11 +108,12 @@ export class Firebase {
      * Profile functions
      * - getUserInfo
      */
+    // TODO: Update getUserName to getUserInfo
     getUserName: IFastCastUserInfoAll = () => {
         if (this.auth.currentUser) {
-            const { email, displayName  } = this.auth.currentUser
-            return { email, displayName }
+            const { email, displayName } = this.auth.currentUser;
+                return { email, displayName };
         }
-        return { email: null, displayName: null }
+        return { email: null, displayName: null };
     }
 }
