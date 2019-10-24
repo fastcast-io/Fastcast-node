@@ -1,5 +1,6 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
+// <reference types="next-images" />
 // Update the process env type here
 declare namespace NodeJS {
     interface ProcessEnv {

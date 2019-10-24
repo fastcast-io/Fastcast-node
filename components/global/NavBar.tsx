@@ -1,8 +1,11 @@
+import FastcastBrand from './FastcastBrand/FastcastFullLogo'
+
 const NavBar = (props: React.ComponentProps<any>) => (
     <nav className="navbar" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
             {/* Put the logo here */}
-            <span><b><i>FastCast</i></b></span>
+            {/* <span><b><i>FastCast</i></b></span> */}
+            {/* <FastcastBrand /> */}
 
             {/* Put the different pages to show when the page is in mobile view */}
             <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
