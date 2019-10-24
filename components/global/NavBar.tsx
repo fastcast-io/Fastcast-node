@@ -22,12 +22,9 @@ const NavBar = (props: React.ComponentProps<any>) => (
             <div className="navbar-end">
                 <div className="navbar-items">
                     <div className="buttons">
-                        <a className="button is-primary">
-                            <strong>Sign up with Google</strong>
-                        </a>
-                        <a className="button is-light">
-                            Log in
-                        </a>
+                        <button className="button is-primary">
+                            <strong>Google Login</strong>
+                        </button>
                     </div>
                 </div>
             </div>
