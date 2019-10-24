@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import App, { Container, AppContext, AppProps, AppInitialProps } from 'next/app'
 import { Firebase, AuthProvider } from '../components/firebase'
 
+import "../styling/global.scss";
+import NavBar from '../components/global/NavBar'
+
+
 export interface MyAppInitialProps {}
 
 const getInitialProps = async ({ Component, ctx }: AppContext): Promise<AppProps & AppInitialProps> => {
@@ -22,7 +26,10 @@ export default class MyApp extends App<AppProps<any>> {
         return (
             <Container>
                 <AuthProvider value={new Firebase()}>
-                    <Component {...pageProps} { ...children }/>
+                    <div className="container">
+                        <NavBar />
+                        <Component {...pageProps} { ...children }/>
+                    </div>
                 </AuthProvider>
             </Container>
         )
