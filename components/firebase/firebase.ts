@@ -54,7 +54,7 @@ export class Firebase {
      * - Logout
      * - isUserLoggedIn
      */
-    login: IVoidAll = () => {
+    login = () => {
         this.auth.signInWithRedirect(this.provider)
         
         this.auth.getRedirectResult().then(function(result) {
