@@ -1,12 +1,35 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
-// import { useAuth } from '../components/firebase'
+import { Container } from 'react-bulma-components'
+import { useAuth } from '../components/firebase'
 
 const Home = () => {
 
+  const authStatus = useAuth()
+
+  const initiateLogin = () => {
+    console.log("Login was clicked")
+    if (!authStatus.isLoggedIn) {
+      authStatus.firebase.login()
+
+    }
+  }
+
   return (
-  <div>
+    <Container>
+      <h1>Fastcast Index</h1>
+
+      {/* <p>Login</p>
+      <button className="button is-primary" onClick={() => initiateLogin()}>
+          <strong>Google Login</strong>
+      </button> */}
+    </Container>
+)}
+
+export default Home
+
+{/*<div>
     <Head>
       <title>Home</title>
       <link rel='icon' href='/favicon.ico' />
@@ -15,7 +38,7 @@ const Home = () => {
     <Nav />
 
     <h1>HELLOOOOOOO</h1>
-    {/* <style jsx>{`
+     <style jsx>{`
       .hero {
         width: 100%;
         color: #333;
@@ -60,8 +83,5 @@ const Home = () => {
         font-size: 13px;
         color: #333;
       }
-    `}</style> */}
-  </div>
-)}
-
-export default Home
+    `}</style> */
+  /* </div> */}
