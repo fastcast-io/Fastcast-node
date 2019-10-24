@@ -1,4 +1,6 @@
 import { Firebase } from './firebase'
-import { AuthProvider, useAuth } from './context'
+import { AuthProvider, useAuth, IAuthProvided } from './context'
+
+export interface IAuthStatus extends IAuthProvided {}
 
 export { Firebase, AuthProvider, useAuth }
