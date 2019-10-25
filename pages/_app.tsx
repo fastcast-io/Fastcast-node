@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import App, { Container, AppContext, AppProps, AppInitialProps } from 'next/app'
+import App, { AppContext, AppProps, AppInitialProps } from 'next/app'
 import { Firebase, AuthProvider } from '../components/firebase'
-
+import { Container } from 'react-bootstrap'
 // import "../styling/global.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from '../components/global/NavBar/NavBar'
@@ -25,14 +25,14 @@ export default class MyApp extends App<AppProps<any>> {
         const { Component, pageProps, children } = this.props
 
         return (
-            <Container>
-                <AuthProvider value={new Firebase()}>
+            <AuthProvider value={new Firebase()}>
+                <Container>
                     <div className="container" style={{fontFamily: "'IBM Plex Sans', sans-serif"}}>
                         <NavBar />
                         <Component {...pageProps} { ...children }/>
                     </div>
-                </AuthProvider>
-            </Container>
+                </Container>
+            </AuthProvider>
         )
     }
 }
