@@ -6,14 +6,13 @@ import { useAuth } from '../components/firebase'
 
 const Home = () => {
 
-  const authStatus = useAuth()
+  // const authStatus = useAuth()
 
-  const initiateLogin = () => {
-    console.log("Login was clicked")
-    if (!authStatus.isLoggedIn) {
-      authStatus.firebase.login()
+  // const initiateLogin = () => {
+  //   if (!authStatus.isLoggedIn) {
+  //     authStatus.firebase.login()
 
-    }
+  //   }
   }
 
   return (
