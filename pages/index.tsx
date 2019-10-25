@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <Container>
-      <h1>Fastcast Index</h1>
+      <h1>Login to continue</h1>
 
       {/* <p>Login</p>
       <button className="button is-primary" onClick={() => initiateLogin()}>

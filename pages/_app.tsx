@@ -26,12 +26,12 @@ export default class MyApp extends App<AppProps<any>> {
 
         return (
             <AuthProvider value={new Firebase()}>
-                <Container>
-                    <div style={{fontFamily: "'IBM Plex Sans', sans-serif"}}>
-                        <NavBar />
+                <div style={{fontFamily: "'IBM Plex Sans', sans-serif"}}>
+                    <NavBar />
+                    <Container>
                         <Component {...pageProps} { ...children }/>
-                    </div>
-                </Container>
+                    </Container>
+                </div>
             </AuthProvider>
         )
     }

@@ -18,7 +18,8 @@ const NavBar = (props: React.ComponentProps<any>) => {
                 <Nav className="mr-auto" />
                 <Nav>
                     {/* <div style={{color: 'white'}}>Hi Junior</div> */}
-                    <HelloOrLogin styles={{color: 'white'}}/>
+                    {/* {color: 'white'} */}
+                    <HelloOrLogin styles={{}}/>
                 </Nav>
             </Navbar.Collapse>
 </Navbar>
