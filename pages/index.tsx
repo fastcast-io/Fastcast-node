@@ -13,7 +13,7 @@ const Home = () => {
   //     authStatus.firebase.login()
 
   //   }
-  }
+  // }
 
   return (
     <Container>

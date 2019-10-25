@@ -1,4 +1,4 @@
-// import HelloOrLogin from './HelloOrLogin'
+import HelloOrLogin from './HelloOrLogin'
 import FastcastBrand from '../FastcastBrand/FastcastText'
 // import { Navbar } from 'react-bulma-components'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
@@ -9,7 +9,7 @@ const NavBar = (props: React.ComponentProps<any>) => {
         width: '9rem'
     }
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Navbar.Brand>
                 <FastcastBrand styles={brandStyle}/>
             </Navbar.Brand>
@@ -17,7 +17,8 @@ const NavBar = (props: React.ComponentProps<any>) => {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto" />
                 <Nav>
-                    <div style={{color: 'white'}}>Hi Junior</div>
+                    {/* <div style={{color: 'white'}}>Hi Junior</div> */}
+                    <HelloOrLogin styles={{color: 'white'}}/>
                 </Nav>
             </Navbar.Collapse>
 </Navbar>
@@ -39,7 +40,6 @@ const NavBar = (props: React.ComponentProps<any>) => {
         //                     <div className="buttons"> */}
         //                         <Navbar.Container position="end">
         //                             <div>Hi Junior</div>
-        //                             {/* <HelloOrLogin /> */}
         //                         </Navbar.Container>
         //                     {/* </div>
         //                 </div>

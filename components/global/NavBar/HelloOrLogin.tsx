@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../../firebase'
+import { Button } from 'react-bootstrap'
 
 // TODO: FIX GOOGLE BUTTON SIGN-IN
 
 const NotLoggedIn = (handleLogin: CallableFunction) => (
-    <button className="button is-primary" onClick={() => handleLogin()}>
-            <strong>Google Login</strong>
-    </button>
+    <Button onClick={() => handleLogin()}>
+        Google Login
+    </Button>
 )
 
 const LoggedIn = ( userEmail: string ) => (
     <div>Hi {userEmail} </div>
 )
 
-const HelloOrLogin = ({}) => {
+const HelloOrLogin = ({ styles } : any) => {
     const authStatus = useAuth()
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [userEmail, setUserEmail] = useState("")
@@ -30,7 +31,7 @@ const HelloOrLogin = ({}) => {
     }, [authStatus.isLoggedIn])
 
     return (
-        <div>
+        <div style={styles}>
             {isLoggedIn ? LoggedIn(userEmail as string) : NotLoggedIn(initiateLogin)}
         </div>
     )
