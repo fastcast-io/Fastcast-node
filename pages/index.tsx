@@ -1,19 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import { Container } from 'react-bulma-components'
 import { useAuth } from '../components/firebase'
+import { useRouter } from "next/router";
 
 const Home = () => {
 
-  // const authStatus = useAuth()
+  const authStatus = useAuth()
+  const router = useRouter();
 
-  // const initiateLogin = () => {
-  //   if (!authStatus.isLoggedIn) {
-  //     authStatus.firebase.login()
+  
+  useEffect(() => {
+    if (authStatus.isLoggedIn) {
+      router.replace('/home')
+    }
 
-  //   }
-  // }
+  }, [authStatus.isLoggedIn])
 
   return (
     <Container>
