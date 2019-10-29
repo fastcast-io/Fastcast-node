@@ -31,9 +31,7 @@ const Main = ({ Component, pageProps, children }: MainProps) => {
     setUserInfo(authStatus.firebase.getUserInfo());
 
     return () => {
-      if(!isLoggedIn) {
-        router.replace('/index');
-      }
+      // 
       // TODO: implement the cleanup method
     };
   }, [authStatus.isLoggedIn]);
@@ -47,6 +45,9 @@ const Main = ({ Component, pageProps, children }: MainProps) => {
   const initiateLogout = (isLoggedIn: boolean) => {
     if (isLoggedIn) {
       authStatus.firebase.logout();
+    }
+    else {
+      router.replace('/index');
     }
   };
 
