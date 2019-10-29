@@ -6,7 +6,7 @@ import { firebaseConfig } from '../../constants/firebaseConfig'
 var app : firebase.app.App = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app()
 
 // console.log({ firebaseConfig })
-interface IFastCastUserInfo {
+export interface IFastCastUserInfo {
     email: string | null,
     displayName: string | null,
     photoURL: string | null,
