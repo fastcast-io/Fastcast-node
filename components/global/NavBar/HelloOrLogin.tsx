@@ -37,7 +37,7 @@ const HelloOrLogin = ({ styles } : any) => {
 
     useEffect(() => {
         setIsLoggedIn(authStatus.isLoggedIn as boolean)
-        setUserEmail(authStatus.firebase.getUserName()['email'] as any)
+        setUserEmail(authStatus.firebase.getUserInfo()['email'] as any)
     }, [authStatus.isLoggedIn])
 
     return (
