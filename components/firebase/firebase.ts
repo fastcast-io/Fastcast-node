@@ -65,8 +65,8 @@ export class Firebase {
         
         this.auth.getRedirectResult().then(function(result) {
             let credential: firebase.auth.OAuthCredential = (<firebase.auth.OAuthCredential>result.credential);
-            var token: string | undefined= credential.accessToken;
-            var user: firebase.User | null = result.user;
+            // var token: string | undefined = credential.accessToken;
+            // var user: firebase.User | null = result.user;
 
             // return { token, user }
             // console.log({token})
