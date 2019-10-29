@@ -1,12 +1,22 @@
 import React, { useEffect } from 'react'
+import FastcastFullLogo from '../components/global/FastcastBrand/FastcastFullLogo'
 // import Head from 'next/head'
 // import Nav from '../components/nav'
 import { Container } from 'react-bulma-components'
 // import { useAuth } from '../components/firebase'
 // import { useRouter } from "next/router";
 
-const Home = () => {
+interface HomeProps {
+  isLoggedIn: boolean,
+  handleLogin: CallableFunction
+} 
 
+const Home = ({ isLoggedIn, handleLogin }: HomeProps) => {
+
+  const brandStyle = {
+    height: '19rem',
+    width: '25rem'
+  }
   // const authStatus = useAuth()
   // const router = useRouter();
 
@@ -20,12 +30,26 @@ const Home = () => {
 
   return (
     <Container>
-      <h1>Login to continue</h1>
+      {/* <h1>Login to continue</h1> */}
+      <div className="index">
+        <h1>Login to</h1>
+        <FastcastFullLogo styles={brandStyle} />
 
-      {/* <p>Login</p>
-      <button className="button is-primary" onClick={() => initiateLogin()}>
-          <strong>Google Login</strong>
-      </button> */}
+        {/* // TODO: Add style for google button to make it look like actual google button */}
+        <button className="button is-primary" onClick={() => handleLogin(isLoggedIn)}>
+            <strong>Google Login</strong>
+        </button>
+      </div>
+      <style jsx>{`
+        .index {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          padding: 5px;
+          justify-content: center;
+          align-items: center;
+        }
+      `}</style>
     </Container>
 )}
 

@@ -1,58 +1,64 @@
 /**
  * Main.tsx - Main component. Root level where the auth status is handled
  */
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { AppProps } from 'next/app'
-import { useAuth, IUserInfo } from '../firebase'
+import { AppProps } from "next/app";
+import { useAuth, IUserInfo } from "../firebase";
 import NavBar from "./NavBar";
-import Footer from './Footer'
+import Footer from "./Footer";
 
+type MainProps = React.PropsWithChildren<any> & AppProps<any>;
 
-type MainProps = React.PropsWithChildren<any> & AppProps<any>
-
-const initialState : IUserInfo = {
+const initialState: IUserInfo = {
   displayName: null,
   email: null,
   uid: "",
   photoURL: null
-}
+};
+// TODO: Add redirect feature. ie: Pass redirect link to index
+const Main = ({ Component, pageProps, children }: MainProps) => {
+  const authStatus = useAuth();
+  const [userInfo, setUserInfo] = useState<IUserInfo>(initialState);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
 
-const Main = ({ Component, pageProps, children } : MainProps) => {
-  
-  const authStatus = useAuth()
-  const [ userInfo, setUserInfo ] = useState<IUserInfo>(initialState)
-  const [ isLoggedIn, setIsLoggedIn ] = useState<boolean>(false)
-  
   useEffect(() => {
-    setIsLoggedIn(authStatus.isLoggedIn as boolean)
-    setUserInfo(authStatus.firebase.getUserInfo())
+    setIsLoggedIn(authStatus.isLoggedIn as boolean);
+    setUserInfo(authStatus.firebase.getUserInfo());
 
     return () => {
       // TODO: implement the cleanup method
-    }
-  })
+    };
+  });
 
-  const initiateLogin = ( isLoggedIn: boolean ) => {
+  const initiateLogin = (isLoggedIn: boolean) => {
     if (!isLoggedIn) {
-      authStatus.firebase.login()
+      authStatus.firebase.login();
     }
-  }
+  };
 
-  const initiateLogout = ( isLoggedIn: boolean ) => {
+  const initiateLogout = (isLoggedIn: boolean) => {
     if (isLoggedIn) {
-      authStatus.firebase.logout()
+      authStatus.firebase.logout();
     }
-  }
+  };
 
   return (
-  <div style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
-    { isLoggedIn && <NavBar /> }
-    <Container>
-      <Component {...pageProps} {...children} />
-    </Container>
-    { isLoggedIn && <Footer /> }
-  </div>
-) }
+    <div style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
+      {isLoggedIn && <NavBar />}
+      <Container>
+        <Component
+          {...pageProps}
+          {...children}
+          {...userInfo}
+          isLoggedIn={isLoggedIn}
+          handleLogin={initiateLogin}
+          handleLogout={initiateLogout}
+        />
+      </Container>
+      {isLoggedIn && <Footer />}
+    </div>
+  );
+};
 
 export default Main;
