@@ -61,16 +61,40 @@ const Main = ({ Component, pageProps, children }: MainProps) => {
           {...userInfo}
         />
       )}
-      <Container>
-        <Component
-          {...pageProps}
-          {...children}
-          {...userInfo}
-          isLoggedIn={isLoggedIn}
-          handleLogin={initiateLogin}
-          handleLogout={initiateLogout}
-        />
-      </Container>
+      <div className="main-wrapper">
+        <div className="content-wrapper">
+          <Container>
+            <Component
+              {...pageProps}
+              {...children}
+              {...userInfo}
+              isLoggedIn={isLoggedIn}
+              handleLogin={initiateLogin}
+              handleLogout={initiateLogout}
+            />
+          </Container>
+        </div>
+      </div>
+      <style jsx>{`
+      .main-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: #F9F9F9 !important;
+        min-height: 100% !important;
+        max-height: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+      }
+      
+      .content-wrapper {
+        padding: 23px 23px 0px;        
+        background: #FFFFFF !important;
+        min-width: 80% !important;
+        max-width: 80% !important;
+      }
+      `}</style>
       {isLoggedIn && <Footer />}
     </div>
   );

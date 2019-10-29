@@ -10,8 +10,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="footer">
-    {/* // <div className="footer"> */}
+    // <footer className="footer">
+    // {/* // <div className="footer"> */}
     <Container>
         <Navbar fixed="bottom" expand="lg" bg="dark" variant="dark">
         <Navbar.Brand>
@@ -45,8 +45,8 @@ const Footer = () => {
         `}</style>
         </Navbar>
     </Container>
-    {/* </div> */}
-     </footer>
+    // {/* </div> */}
+    //  </footer>
   );
 };
 

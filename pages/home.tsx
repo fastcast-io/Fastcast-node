@@ -1,6 +1,6 @@
 import { Container } from 'react-bootstrap'
 
-// TODO: CREATE A REDIRECT COMPONENT WHICH WRAPS EVERYTHING OR LOADS!
+// TODO: CREATE A REDIRECT COMPONENT WHICH WRAPS EVERYTHING OR LOADS! AND HAS BACKGROUND
 const Home = (props: React.ComponentProps<any>) => (
     <Container>
         <div>
