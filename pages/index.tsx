@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import Head from 'next/head'
-import Nav from '../components/nav'
+// import Head from 'next/head'
+// import Nav from '../components/nav'
 import { Container } from 'react-bulma-components'
 import { useAuth } from '../components/firebase'
 import { useRouter } from "next/router";

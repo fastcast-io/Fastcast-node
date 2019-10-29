@@ -1,5 +1,11 @@
+import { Container } from 'react-bootstrap'
+
 const Home = (props: React.ComponentProps<any>) => (
-    <div>You were authenticated</div>
+    <Container>
+        <div>
+            
+        </div>
+    </Container>
 )
 
 export default Home
