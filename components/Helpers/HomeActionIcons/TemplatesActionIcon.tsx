@@ -1,9 +1,9 @@
 import { IImgSizing } from '../../global/FastcastGlobalTypes'
 
-const AnswerActionLogo = () => {
+const TemplatesActionIcon = () => {
     return (
         <></>
     )
 }
 
-export default AnswerActionLogo
+export default TemplatesActionIcon

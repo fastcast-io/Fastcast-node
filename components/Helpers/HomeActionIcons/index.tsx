@@ -1,7 +1,7 @@
-import AnswerActionLogo from './AnswerActionLogo'
-import CirclesActionLogo from './CirclesActionLogo'
-import CreateActionLogo from './CreateActionLogo'
-import SessionsActionLogo from './SessionsActionLogo'
-import TemplatesActionLogo from './TemplatesActionLogo'
+import AnswerActionIcon from './AnswerActionIcon'
+import CirclesActionIcon from './CirclesActionIcon'
+import CreateActionIcon from './CreateActionIcon'
+import SessionsActionIcon from './SessionsActionIcon'
+import TemplatesActionIcon from './TemplatesActionIcon'
 
-export { AnswerActionLogo, CirclesActionLogo, CreateActionLogo, SessionsActionLogo, TemplatesActionLogo }
+export { AnswerActionIcon, CirclesActionIcon, CreateActionIcon, SessionsActionIcon, TemplatesActionIcon }

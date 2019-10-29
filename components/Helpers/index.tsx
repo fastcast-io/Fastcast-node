@@ -1,17 +1,17 @@
 import ActionTitle from "./ActionTitle";
 import {
-  AnswerActionLogo,
-  CirclesActionLogo,
-  CreateActionLogo,
-  SessionsActionLogo,
-  TemplatesActionLogo
+  AnswerActionIcon,
+  CirclesActionIcon,
+  CreateActionIcon,
+  SessionsActionIcon,
+  TemplatesActionIcon
 } from "./HomeActionIcons";
 
 export {
   ActionTitle,
-  AnswerActionLogo,
-  CirclesActionLogo,
-  CreateActionLogo,
-  SessionsActionLogo,
-  TemplatesActionLogo
+  AnswerActionIcon,
+  CirclesActionIcon,
+  CreateActionIcon,
+  SessionsActionIcon,
+  TemplatesActionIcon
 };

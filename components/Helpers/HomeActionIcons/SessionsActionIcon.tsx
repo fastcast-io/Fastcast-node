@@ -1,9 +1,9 @@
 import { IImgSizing } from '../../global/FastcastGlobalTypes'
 
-const CreateActionLogo = () => {
+const SessionsActionIcon = () => {
     return (
         <></>
     )
 }
 
-export default CreateActionLogo
+export default SessionsActionIcon
