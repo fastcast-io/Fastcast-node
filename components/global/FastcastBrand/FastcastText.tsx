@@ -1,11 +1,6 @@
-interface imgSizing {
-    styles : {
-        height: string,
-        width: string
-    }
-}
+import { IImgSizing } from '../FastcastGlobalTypes'
 
-const FastcastText = ({ styles }: imgSizing ) => (
+const FastcastText = ({ styles }: IImgSizing ) => (
     <div className="fastcast-brand">
             <img alt="fastcast-brand" src={'/FastcastText.svg'} style={styles} />
     </div>
