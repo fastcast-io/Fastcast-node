@@ -2,21 +2,21 @@ import React, { useEffect } from 'react'
 // import Head from 'next/head'
 // import Nav from '../components/nav'
 import { Container } from 'react-bulma-components'
-import { useAuth } from '../components/firebase'
-import { useRouter } from "next/router";
+// import { useAuth } from '../components/firebase'
+// import { useRouter } from "next/router";
 
 const Home = () => {
 
-  const authStatus = useAuth()
-  const router = useRouter();
+  // const authStatus = useAuth()
+  // const router = useRouter();
 
   
-  useEffect(() => {
-    if (authStatus.isLoggedIn) {
-      router.replace('/home')
-    }
+  // useEffect(() => {
+  //   if (authStatus.isLoggedIn) {
+  //     router.replace('/home')
+  //   }
 
-  }, [authStatus.isLoggedIn])
+  // }, [authStatus.isLoggedIn])
 
   return (
     <Container>
