@@ -1,5 +1,4 @@
 import { IImgSizing } from '../FastcastGlobalTypes'
-// TODO FIX DUPLICATE IMGSIZING!!
 
 const FastcastFullLogo = ({ styles }: IImgSizing) => (
     <div className="fastcast-brand">
