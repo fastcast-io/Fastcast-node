@@ -1,44 +1,60 @@
-import React, { useEffect } from 'react'
-import FastcastFullLogo from '../components/global/FastcastBrand/FastcastFullLogo'
+import React, { useState, useEffect } from "react";
+import FastcastFullLogo from "../components/global/FastcastBrand/FastcastFullLogo";
 // import Head from 'next/head'
 // import Nav from '../components/nav'
-import { Container } from 'react-bulma-components'
+import { Container } from "react-bulma-components";
 // import { useAuth } from '../components/firebase'
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 interface HomeProps {
-  isLoggedIn: boolean,
-  handleLogin: CallableFunction
-} 
+  isLoggedIn: boolean;
+  handleLogin: CallableFunction;
+}
 
 const Home = ({ isLoggedIn, handleLogin }: HomeProps) => {
-
   const brandStyle = {
-    height: '19rem',
-    width: '25rem'
-  }
-  // const authStatus = useAuth()
-  // const router = useRouter();
+    height: "19rem",
+    width: "25rem"
+  };
 
-  
-  // useEffect(() => {
-  //   if (authStatus.isLoggedIn) {
-  //     router.replace('/home')
-  //   }
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
 
-  // }, [authStatus.isLoggedIn])
+  useEffect(() => {
+    if (isLoggedIn) {
+      setIsLoading(false); // TODO: Redirect to home from google
+      // TODO: Redirect after logout
+      router.replace("/home");
+    }
+  }, [isLoggedIn]);
+
+  const login = (isLoggedIn: boolean) => {
+    setIsLoading(true);
+    handleLogin(isLoggedIn);
+  };
+
+  // TODO: Add login
 
   return (
     <Container>
       {/* <h1>Login to continue</h1> */}
       <div className="index">
-        <h1>Login to</h1>
-        <FastcastFullLogo styles={brandStyle} />
+        {!isLoading ? (
+          <>
+            <h1>Login to</h1>
+            <FastcastFullLogo styles={brandStyle} />
 
-        {/* // TODO: Add style for google button to make it look like actual google button */}
-        <button className="button is-primary" onClick={() => handleLogin(isLoggedIn)}>
-            <strong>Google Login</strong>
-        </button>
+            {/* // TODO: Add style for google button to make it look like actual google button */}
+            <button
+              className="button is-primary"
+              onClick={() => login(isLoggedIn)}
+            >
+              <strong>Google Login</strong>
+            </button>
+          </>
+        ) : (
+          <div>Loading</div>
+        )}
       </div>
       <style jsx>{`
         .index {
@@ -48,14 +64,17 @@ const Home = ({ isLoggedIn, handleLogin }: HomeProps) => {
           padding: 5px;
           justify-content: center;
           align-items: center;
+          padding: 10px;
         }
       `}</style>
     </Container>
-)}
+  );
+};
 
-export default Home
+export default Home;
 
-{/*<div>
+{
+  /*<div>
     <Head>
       <title>Home</title>
       <link rel='icon' href='/favicon.ico' />
@@ -110,4 +129,5 @@ export default Home
         color: #333;
       }
     `}</style> */
-  /* </div> */}
+  /* </div> */
+}
