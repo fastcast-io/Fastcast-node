@@ -1,6 +1,8 @@
+import { Fragment } from "react";
 import UserStatusZone from "./UserStatusZone";
 import FastcastBrand from "../FastcastBrand/FastcastText";
 // import { Navbar } from 'react-bulma-components'
+// import { Link } from 'next/link'
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { IUserInfo } from "../../firebase";
 
@@ -23,51 +25,45 @@ const NavBar = (props: INavbarProps) => {
   };
 
   const { displayName, isLoggedIn, handleLogin, handleLogout } = props;
-
+  // TODO: Fix the links and the nav bar color
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-      <Navbar.Brand>
-        <FastcastBrand styles={brandStyle} />
-      </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto" />
-        <Nav>
-          {/* <div style={{color: 'white'}}>Hi Junior</div> */}
-          {/* {color: 'white'} */}
-          <UserStatusZone
-            displayName={displayName}
-            handleLogin={handleLogin}
-            handleLogout={handleLogout}
-            isLoggedIn={isLoggedIn}
-          />
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-    // <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-
-    //     <Navbar.Collapse>
-    //     </Navbar.Collapse>
-    // </Navbar>
-
-    // <Navbar>
-    //     <Navbar.Brand color="#484848">
-    //         <Navbar.Item renderAs="a" >
-    //             <FastcastBrand />
-    //         </Navbar.Item>
-    //         <Navbar.Container>
-    //             {/* <div className="navbar-end">
-    //                 <div className="navbar-items">
-    //                     <div className="buttons"> */}
-    //                         <Navbar.Container position="end">
-    //                             <div>Hi Junior</div>
-    //                         </Navbar.Container>
-    //                     {/* </div>
-    //                 </div>
-    //             </div> */}
-    //         </Navbar.Container>
-    //     </Navbar.Brand>
-    // </Navbar>
+    <Fragment>
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        bg="dark"
+        variant="dark"
+        className="fastcastNavbar"
+      >
+        <Navbar.Brand>
+          <FastcastBrand styles={brandStyle} />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mr-auto"></Nav>
+          <Nav>
+            <Nav.Link href="#home">home</Nav.Link>
+            <Nav.Link href="#circles">circles</Nav.Link>
+            <Nav.Link href="#sessions">sessions</Nav.Link>
+            <Nav.Link href="#templates">templates</Nav.Link>
+            <Nav.Link href="#profile">profile</Nav.Link>
+            <UserStatusZone
+              displayName={displayName}
+              handleLogin={handleLogin}
+              handleLogout={handleLogout}
+              isLoggedIn={isLoggedIn}
+            />
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      {/* // Fix the styling. Good for now */}
+      <style jsx>{`
+        .fastcastNavbar {
+          box-shadow: 0px 4px 2px rgba(195, 0, 0, 0.28) !important;
+          color: black !important;
+        }
+      `}</style>
+    </Fragment>
   );
 };
 

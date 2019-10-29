@@ -9,7 +9,7 @@ const NotLoggedIn = (handleLogin: CallableFunction, isLoggedIn: boolean) => (
 );
 
 const LoggedIn = (userInfoString: string) => (
-  <Nav.Link style={{ color: "black" }}>
+  <Nav.Link style={{ color: "white" }}> {/* "black" */}
     Hi{" "}
     <strong>
       <i>{userInfoString}</i>
