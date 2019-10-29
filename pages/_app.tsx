@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import App, { AppContext, AppProps, AppInitialProps } from 'next/app'
 import { Firebase, AuthProvider } from '../components/firebase'
-import { Container } from 'react-bootstrap'
+import Main from '../components/global/Main'
 // import "../styling/global.scss";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from '../components/global/NavBar/NavBar'
 
 
 export interface MyAppInitialProps {}
@@ -26,12 +25,7 @@ export default class MyApp extends App<AppProps<any>> {
 
         return (
             <AuthProvider value={new Firebase()}>
-                <div style={{fontFamily: "'IBM Plex Sans', sans-serif"}}>
-                    <NavBar />
-                    <Container>
-                        <Component {...pageProps} { ...children }/>
-                    </Container>
-                </div>
+                <Main Component={Component} pageProps={pageProps} children={children} />
             </AuthProvider>
         )
     }
