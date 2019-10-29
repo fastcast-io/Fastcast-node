@@ -8,7 +8,9 @@ var app : firebase.app.App = !firebase.apps.length ? firebase.initializeApp(fire
 // console.log({ firebaseConfig })
 interface IFastCastUserInfo {
     email: string | null,
-    displayName: string | null
+    displayName: string | null,
+    photoURL: string | null,
+    uid: string
 }
 
 interface IFastCastUserInfoAll {
@@ -67,8 +69,8 @@ export class Firebase {
             var user: firebase.User | null = result.user;
 
             // return { token, user }
-            console.log({token})
-            console.log({user})
+            // console.log({token})
+            // console.log({user})
         })
         // .then(result => { 
         //     if (result.token !== undefined && result.user !== null) {
@@ -109,11 +111,11 @@ export class Firebase {
      * - getUserInfo
      */
     // TODO: Update getUserName to getUserInfo
-    getUserName: IFastCastUserInfoAll = () => {
+    getUserInfo: IFastCastUserInfoAll = () => {
         if (this.auth.currentUser) {
-            const { email, displayName } = this.auth.currentUser;
-                return { email, displayName };
+            const { email, displayName, uid, photoURL } = this.auth.currentUser;
+                return { email, displayName, uid, photoURL };
         }
-        return { email: null, displayName: null };
+        return { email: null, displayName: null, uid: "", photoURL: null };
     }
 }
