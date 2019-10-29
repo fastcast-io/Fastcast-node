@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import FastcastFullLogo from "../components/global/FastcastBrand/FastcastFullLogo";
 // import Head from 'next/head'
 // import Nav from '../components/nav'
-import { Container } from "react-bulma-components";
+import { Container } from "react-bulma-components"; //TODO: WHAT IS THIS LOL? SHOULD BE REACT
 // import { useAuth } from '../components/firebase'
 import { useRouter } from "next/router";
 
@@ -34,6 +34,7 @@ const Home = ({ isLoggedIn, handleLogin }: HomeProps) => {
   };
 
   // TODO: Add login
+  // TODO: Fix the naming of the icons and fix the favicon
 
   return (
     <Container>

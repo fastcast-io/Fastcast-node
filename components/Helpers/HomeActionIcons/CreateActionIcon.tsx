@@ -1,8 +1,10 @@
 import { IImgSizing } from '../../global/FastcastGlobalTypes'
 
-const CreateActionIcon = () => {
+const CreateActionIcon = ({ styles }: IImgSizing) => {
     return (
-        <></>
+        <div>
+            <img alt="create-icon" src={'/create.png'} style={styles} />
+        </div>
     )
 }
 

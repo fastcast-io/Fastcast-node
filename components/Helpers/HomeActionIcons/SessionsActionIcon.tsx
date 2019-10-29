@@ -1,8 +1,10 @@
 import { IImgSizing } from '../../global/FastcastGlobalTypes'
 
-const SessionsActionIcon = () => {
+const SessionsActionIcon = ({ styles }: IImgSizing) => {
     return (
-        <></>
+        <div>
+            <img alt="sessions-icon" src={'/sessions.png'} style={styles} />
+        </div>
     )
 }
 

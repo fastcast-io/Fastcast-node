@@ -5,5 +5,5 @@ const FastcastText = ({ styles }: IImgSizing ) => (
             <img alt="fastcast-brand" src={'/FastcastText.svg'} style={styles} />
     </div>
 )
-
+// TODO: Fix messed up classname text styles
 export default FastcastText
