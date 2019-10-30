@@ -1,7 +1,7 @@
-import { ActionTitle, AnswerActionIcon, ActionCard, CreateActionIcon } from './'
+import { ActionTitle, ActionCard } from './'
 import { IActionSectionProp } from '../global/FastcastGlobalTypes'
 
-const ActionSection = ({ SectionTitle, ActionCards } : IActionSectionProp ) => {
+const ActionSection = ({ SectionTitle, ActionCards, handleClick } : IActionSectionProp ) => {
 
     return (
         <div style={{
@@ -16,6 +16,8 @@ const ActionSection = ({ SectionTitle, ActionCards } : IActionSectionProp ) => {
                         styles={actionObject.Styles}
                         format={actionObject.Format as ("big" | "normal")}
                         textValue={actionObject.TextValue}
+                        linkTo={actionObject.linkTo}
+                        handleClick={handleClick}
                         key={`${actionObject.TextValue}`}
                     />    
                 ))}

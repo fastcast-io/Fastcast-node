@@ -1,19 +1,21 @@
 import ActionCardText from './ActionCardText'
 
-interface IActionCardProp {
+interface IActionCardComponentProp {
     ImageComponent: any,
     styles: {
         width: string,
         height: string
     },
     textValue: string,
-    format: "big" | "normal"
+    format: "big" | "normal",
+    linkTo: string,
+    handleClick: CallableFunction
 }
 
-const ActionCard = ({ ImageComponent, styles, textValue, format } : IActionCardProp) => {
+const ActionCard = ({ ImageComponent, styles, textValue, format, linkTo, handleClick } : IActionCardComponentProp) => {
     return (
         <>
-            <div className="action-card">
+            <div className="action-card" onClick={() => handleClick(linkTo)}>
                 <div className="icon-zone">
                     <ImageComponent styles={styles} />
                 </div>

@@ -12,10 +12,12 @@ export interface IActionCardProp {
         height: string
     },
     Format: "big" | "normal",
-    TextValue: string
+    TextValue: string,
+    linkTo: string
 }
 
 export interface IActionSectionProp {
     SectionTitle: string,
-    ActionCards: Array<IActionCardProp>
+    ActionCards: Array<IActionCardProp>,
+    handleClick: CallableFunction
 }

@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import UserStatusZone from "./UserStatusZone";
 import FastcastBrand from "../FastcastBrand/FastcastText";
 // import { Navbar } from 'react-bulma-components'
-// import { Link } from 'next/link'
+import Link from 'next/link'
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { IUserInfo } from "../../firebase";
 
@@ -42,11 +42,11 @@ const NavBar = (props: INavbarProps) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link href="#home">home</Nav.Link>
-            <Nav.Link href="#circles">circles</Nav.Link>
-            <Nav.Link href="#sessions">sessions</Nav.Link>
-            <Nav.Link href="#templates">templates</Nav.Link>
-            <Nav.Link href="#profile">profile</Nav.Link>
+            <Nav.Link href=""><Link href="/home">home</Link></Nav.Link> { /* home */ }
+            <Nav.Link href=""><Link href="/circles">circles</Link></Nav.Link> { /* circles */ }
+            <Nav.Link href=""><Link href="/sessions">sessions</Link></Nav.Link> { /* sessions */ }
+            <Nav.Link href=""><Link href="/templates">templates</Link></Nav.Link> { /* templates */ }
+            <Nav.Link href=""><Link href="/profile">profile</Link></Nav.Link> { /* profile */ }
             <UserStatusZone
               displayName={displayName}
               handleLogin={handleLogin}
