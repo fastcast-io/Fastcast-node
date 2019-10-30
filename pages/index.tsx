@@ -35,7 +35,7 @@ const Home = ({ isLoggedIn, handleLogin }: HomeProps) => {
 
   // TODO: Add login
   // TODO: Fix the naming of the icons and fix the favicon
-
+  
   return (
     <Container>
       {/* <h1>Login to continue</h1> */}

@@ -23,15 +23,15 @@ const Main = ({ Component, pageProps, children }: MainProps) => {
   const router = useRouter();  
   const [userInfo, setUserInfo] = useState<IUserInfo>(initialState);
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-
+  let index = router.pathname == 'index' || router.pathname == ''
 
   // TODO: MAKE LOGIN/LOGOUT TRANSITIONS SMOOTHER
   useEffect(() => {
     setIsLoggedIn(authStatus.isLoggedIn as boolean);
     setUserInfo(authStatus.firebase.getUserInfo());
-
+    index = router.pathname == 'index' || router.pathname == ''
+    
     return () => {
-      // 
       // TODO: implement the cleanup method
     };
   }, [authStatus.isLoggedIn]);
@@ -61,7 +61,7 @@ const Main = ({ Component, pageProps, children }: MainProps) => {
           {...userInfo}
         />
       )}
-      <div className="main-wrapper">
+      {true && (<div className="main-wrapper">
         <div className="content-wrapper">
           <Container>
             <Component
@@ -74,7 +74,7 @@ const Main = ({ Component, pageProps, children }: MainProps) => {
             />
           </Container>
         </div>
-      </div>
+      </div>)}
       <style jsx>{`
       .main-wrapper {
         display: flex;

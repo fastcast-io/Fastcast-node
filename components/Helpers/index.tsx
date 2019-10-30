@@ -6,9 +6,11 @@ import {
   SessionsActionIcon,
   TemplatesActionIcon
 } from "./HomeActionIcons";
+import ActionCard from "./ActionCard"
 
 export {
   ActionTitle,
+  ActionCard,
   AnswerActionIcon,
   CirclesActionIcon,
   CreateActionIcon,

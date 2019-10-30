@@ -12,8 +12,8 @@ const Footer = () => {
   return (
     // <footer className="footer">
     // {/* // <div className="footer"> */}
-    <Container>
-        <Navbar fixed="bottom" expand="lg" bg="dark" variant="dark">
+    // <Container>
+        <Navbar /*fixed="bottom"*/ expand="lg" bg="dark" variant="dark">
         <Navbar.Brand>
             <div className="footer-left">
             <FastcastFullLogo styles={brandStyles} />
@@ -44,7 +44,7 @@ const Footer = () => {
             }
         `}</style>
         </Navbar>
-    </Container>
+    // </Container>
     // {/* </div> */}
     //  </footer>
   );
