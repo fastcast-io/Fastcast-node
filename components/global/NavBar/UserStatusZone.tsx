@@ -1,6 +1,7 @@
 // import { useState, useEffect } from "react";
 // import { IUserInfo } from "../../firebase";
 import { Button, Nav } from "react-bootstrap";
+import { useRouter } from 'next/router'
 
 // TODO: FIX GOOGLE BUTTON SIGN-IN
 
@@ -47,7 +48,11 @@ const UserStatusZone = ({
   handleLogout
 }: IUserStatusInfo) => {
   // TODO: Redirect from google after logout
-  
+  const router = useRouter()
+  const properLogout = ( isLoggedIn: boolean) => {
+    router.replace('/logout')
+    handleLogout(isLoggedIn)
+  }
   // useEffect(() => {
   //   if (!isLoggedIn) {
   //     router.replace("/index");
@@ -59,7 +64,7 @@ const UserStatusZone = ({
       {isLoggedIn ? (
         <Nav.Item style={{ display: "flex", flexDirection: "row" }}>
           {LoggedIn(displayName as string)}
-          {LogOut(handleLogout, isLoggedIn)}
+          {LogOut(properLogout, isLoggedIn)}
         </Nav.Item>
       ) : (
         NotLoggedIn(handleLogin, isLoggedIn)
