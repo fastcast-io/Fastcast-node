@@ -1,9 +1,10 @@
 import { Container } from 'react-bootstrap'
+import { ActionTitle } from '../components/Helpers'
 
 const Create = ({}) => {
     return (
         <Container>
-            <div>Create</div>
+            <ActionTitle textValue="Create" />
         </Container>
     )
 }

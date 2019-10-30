@@ -1,9 +1,10 @@
 import { Container } from 'react-bootstrap'
+import { ActionTitle } from '../components/Helpers'
 
 const Sessions = ({}) => {
     return (
         <Container>
-            <div>Sessions</div>
+            <ActionTitle textValue="Sessions" />
         </Container>
     )
 }

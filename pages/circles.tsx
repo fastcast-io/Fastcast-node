@@ -1,9 +1,10 @@
 import { Container } from 'react-bootstrap'
+import { ActionTitle } from '../components/Helpers'
 
 const Circles = ({}) => {
     return (
         <Container>
-            <div>Circles</div>
+            <ActionTitle textValue="Circles" />
         </Container>
     )
 }

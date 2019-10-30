@@ -1,9 +1,10 @@
 import { Container } from 'react-bootstrap'
+import { ActionTitle } from '../components/Helpers'
 
 const Answer = ({}) => {
     return (
         <Container>
-            <div>Answer</div>
+            <ActionTitle textValue="Answer" />
         </Container>
     )
 }
