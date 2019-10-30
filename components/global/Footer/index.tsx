@@ -1,5 +1,6 @@
 import FastcastFullLogo from "../FastcastBrand/FastcastFullLogo";
 import { Nav, Navbar, Container } from "react-bootstrap";
+import Link from 'next/link'
 
 
 // TODO: FIX THE LINKS!!!!! GRRRRR
@@ -21,9 +22,9 @@ const Footer = () => {
         </Navbar.Brand>
         <div className="footer-right">
             {/* FIX THE LINKS */}
-            <div className="footer-content-links"><Nav.Link href="#FIX-ME">Terms of use</Nav.Link></div>
-            <div className="footer-content-links"><Nav.Link href="#FIX-ME">About Us</Nav.Link></div>
-            <div className="footer-content-links"><Nav.Link href="#FIX-ME">Contact Us</Nav.Link></div>
+            <div className="footer-content-links"><Link href="/terms"><Nav.Link as="a">Terms of use</Nav.Link></Link></div>
+            <div className="footer-content-links"><Link href="/about"><Nav.Link as="a">About Us</Nav.Link></Link></div>
+            <div className="footer-content-links"><Link href="/contactus"><Nav.Link as="a">Contact Us</Nav.Link></Link></div>
         </div>
         <style jsx>{`
             .footer { /* TODO: FIX ME */ }
@@ -39,8 +40,13 @@ const Footer = () => {
             }
 
             .footer-content-links {
-                /* color: rgba(255,255,255,.5); */
+                color: rgba(255,255,255,.5);
+                cursor: pointer;
                 margin: 25px;
+              }
+              
+            .footer-content-links:hover {
+              color: white;
             }
         `}</style>
         </Navbar>
