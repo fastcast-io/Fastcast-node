@@ -14,7 +14,9 @@ const ActionCard = ({ ImageComponent, styles, textValue, format } : IActionCardP
     return (
         <>
             <div className="action-card">
-                <ImageComponent styles={styles} />
+                <div className="icon-zone">
+                    <ImageComponent styles={styles} />
+                </div>
                 <ActionCardText textValue={textValue} format={format} />
                 {/* <div>
                     <div className="indicator">TEST</div>
@@ -29,9 +31,17 @@ const ActionCard = ({ ImageComponent, styles, textValue, format } : IActionCardP
                     cursor: pointer;
                     background: #FFFFFF;
                     box-shadow: 0.5px 0.5px 4px rgba(0, 0, 0, 0.25);
-                    width: 450px;
-                    height: 250px;
-                    margin-right: 60px;
+                    width: 360px;
+                    height: 200px;
+                    margin-right: 42px;
+                }
+
+                .icon-zone {
+                    margin: 10px;
+                    min-width: 40%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .action-card:hover {

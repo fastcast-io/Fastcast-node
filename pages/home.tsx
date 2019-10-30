@@ -8,8 +8,8 @@ import { IActionCardProp } from '../components/global/FastcastGlobalTypes'
 const Home = (props: React.ComponentProps<any>) => {
     
     const styles = {
-        height: '10rem',
-        width: '10rem'
+        height: '7rem',
+        width: '7rem'
     }
     
     const QuickActions = [
@@ -57,10 +57,19 @@ const Home = (props: React.ComponentProps<any>) => {
     return (
     <Container>
         <ActionSection SectionTitle={"Quick Actions"} ActionCards={QuickActions as unknown as IActionCardProp[]} />
-        <ActionSection SectionTitle={"Sessions"} ActionCards={Sessions as unknown as IActionCardProp[]} />
-        <ActionSection SectionTitle={"My Circles"} ActionCards={MyCircles as unknown as IActionCardProp[]} />
-        <ActionSection SectionTitle={"My Templates"} ActionCards={MyTemplates as unknown as IActionCardProp[]} />
-        
+        <div className="other-sections">
+            <ActionSection SectionTitle={"Sessions"} ActionCards={Sessions as unknown as IActionCardProp[]} />
+            <ActionSection SectionTitle={"My Circles"} ActionCards={MyCircles as unknown as IActionCardProp[]} />
+            <ActionSection SectionTitle={"My Templates"} ActionCards={MyTemplates as unknown as IActionCardProp[]} />
+        </div>
+        <style jsx>{`
+            .other-sections {
+                display: flex;
+                flex-direction: row;
+                margin-top: 8px;
+                margin-bottom: 26px;
+            }
+        `}</style>
     </Container>
 )}
 

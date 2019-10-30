@@ -6,7 +6,14 @@ interface IActionCardProp {
 const ActionCardText = ({ textValue, format } : IActionCardProp) => {
 
     return (
-        <div>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            alignContent: 'center',
+
+        }}>
             <span className={`action-card-${format}`}> 
                 {textValue}
             </span>
@@ -14,7 +21,7 @@ const ActionCardText = ({ textValue, format } : IActionCardProp) => {
                 .action-card-big {
                     font-style: italic;
                     font-weight: normal;
-                    font-size: 64px;
+                    font-size: 46px;
                     line-height: 83px;
                     color: #C30000;
                 }
@@ -23,8 +30,8 @@ const ActionCardText = ({ textValue, format } : IActionCardProp) => {
                 .action-card-normal {
                     font-style: italic;
                     font-weight: normal;
-                    font-size: 48px;
-                    line-height: 62px;
+                    font-size: 33px;
+                    line-height: 43px;
                     color: #C30000;
                 }
             `}</style>

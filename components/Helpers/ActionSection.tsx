@@ -4,7 +4,10 @@ import { IActionSectionProp } from '../global/FastcastGlobalTypes'
 const ActionSection = ({ SectionTitle, ActionCards } : IActionSectionProp ) => {
 
     return (
-        <>
+        <div style={{
+            display: "flex",
+            flexDirection: "column"
+        }}>
             <ActionTitle textValue={SectionTitle} />
             <div className="quick-actions">
                 {ActionCards.map((actionObject) => (
@@ -24,7 +27,7 @@ const ActionSection = ({ SectionTitle, ActionCards } : IActionSectionProp ) => {
                     padding: 8px;
                 }
                 `}</style>
-        </>
+        </div>
     )
 }
 
