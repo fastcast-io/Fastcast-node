@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FastcastFullLogo from "../components/global/FastcastBrand/FastcastFullLogo";
+import { FoldingCube } from 'styled-spinkit'
 // import Head from 'next/head'
 // import Nav from '../components/nav'
 import { Container } from "react-bulma-components"; //TODO: WHAT IS THIS LOL? SHOULD BE REACT
@@ -17,14 +18,18 @@ const Home = ({ isLoggedIn, handleLogin }: HomeProps) => {
     width: "25rem"
   };
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  // TODO: Remove old/unused dependencies. i.e: bulma 
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const router = useRouter();
 
   useEffect(() => {
     if (isLoggedIn) {
-      setIsLoading(false); // TODO: Redirect to home from google
+      setIsLoading(true); // TODO: Redirect to home from google
       // TODO: Redirect after logout
       router.replace("/home");
+    }
+    else {
+      setIsLoading(false)
     }
   }, [isLoggedIn]);
 
@@ -54,7 +59,12 @@ const Home = ({ isLoggedIn, handleLogin }: HomeProps) => {
             </button>
           </>
         ) : (
-          <div>Loading</div>
+          <>
+          {/* <div className="loading"> */}
+            <div>Loading</div>
+            <FoldingCube color="#C30000" size={50} />
+          {/* </div> */}
+          </>
         )}
       </div>
       <style jsx>{`
