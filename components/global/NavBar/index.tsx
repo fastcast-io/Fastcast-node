@@ -45,7 +45,7 @@ const NavBar = (props: INavbarProps) => {
             <Link href="/home"><Nav.Link href="" as="a">home</Nav.Link></Link> { /* home */ }
             <Link href="/circles"><Nav.Link href="" as="a">circles</Nav.Link></Link> { /* circles */ }
             <Link href="/sessions"><Nav.Link href="" as="a">sessions</Nav.Link></Link> { /* sessions */ }
-            <Link href="/templates"><Nav.Link href="" as="span">templates</Nav.Link></Link> { /* templates */ }
+            <Link href="/templates"><Nav.Link href="" as="a">templates</Nav.Link></Link> { /* templates */ }
             <Link href="/profile"><Nav.Link href="" as="a">profile</Nav.Link></Link> { /* profile */ }
             <UserStatusZone
               displayName={displayName}
