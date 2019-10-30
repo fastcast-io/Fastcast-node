@@ -3,21 +3,21 @@ import { useRouter } from "next/router"
 
 const Logout = () => { 
     const router = useRouter()
-    const [count, setCount] = useState<number>(0)
+    // const [count, setCount] = useState<number>(0)
     
     // TODO : Fix maximum depth exceeded
     useEffect(() => {
-        setCount(count + 1)
+        // setCount(count + 1)
+        // Fix this. Should just use delay
+        // if (count == 6000) {
+        //     router.push('/index')
+        // }
+        const timer = setTimeout(() => router.push('/index'), 3000)
 
-        if (count == 6000) {
-            router.push('/index')
-        }
 
-        return () => {
+        return () => clearTimeout(timer)
 
-        }
-
-    }, [count])
+    }, [])
     
     return (
   <div>
