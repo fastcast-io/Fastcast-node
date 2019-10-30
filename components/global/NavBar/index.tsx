@@ -42,11 +42,11 @@ const NavBar = (props: INavbarProps) => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto"></Nav>
           <Nav>
-            <Nav.Link href=""><Link href="/home">home</Link></Nav.Link> { /* home */ }
-            <Nav.Link href=""><Link href="/circles">circles</Link></Nav.Link> { /* circles */ }
-            <Nav.Link href=""><Link href="/sessions">sessions</Link></Nav.Link> { /* sessions */ }
-            <Nav.Link href=""><Link href="/templates">templates</Link></Nav.Link> { /* templates */ }
-            <Nav.Link href=""><Link href="/profile">profile</Link></Nav.Link> { /* profile */ }
+            <Link href="/home"><Nav.Link href="" as="a">home</Nav.Link></Link> { /* home */ }
+            <Link href="/circles"><Nav.Link href="" as="a">circles</Nav.Link></Link> { /* circles */ }
+            <Link href="/sessions"><Nav.Link href="" as="a">sessions</Nav.Link></Link> { /* sessions */ }
+            <Link href="/templates"><Nav.Link href="" as="span">templates</Nav.Link></Link> { /* templates */ }
+            <Link href="/profile"><Nav.Link href="" as="a">profile</Nav.Link></Link> { /* profile */ }
             <UserStatusZone
               displayName={displayName}
               handleLogin={handleLogin}
