@@ -24,7 +24,7 @@ const ActionSection = ({ SectionTitle, ActionCards } : IActionSectionProp ) => {
                 .quick-actions {
                     display: flex;
                     flex-direction: row;
-                    padding: 8px;
+                    /* padding: 8px; */
                 }
                 `}</style>
         </div>

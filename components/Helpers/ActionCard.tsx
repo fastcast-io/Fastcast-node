@@ -31,8 +31,8 @@ const ActionCard = ({ ImageComponent, styles, textValue, format } : IActionCardP
                     cursor: pointer;
                     background: #FFFFFF;
                     box-shadow: 0.5px 0.5px 4px rgba(0, 0, 0, 0.25);
-                    width: 360px;
-                    height: 200px;
+                    width: 315px;
+                    height: 175px;
                     margin-right: 42px;
                 }
 

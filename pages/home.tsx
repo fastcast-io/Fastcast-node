@@ -6,7 +6,7 @@ import { IActionCardProp } from '../components/global/FastcastGlobalTypes'
 
 
 const Home = (props: React.ComponentProps<any>) => {
-    
+    // TODO: Fix the layout. And it looks kinda ugly lol
     const styles = {
         height: '7rem',
         width: '7rem'
@@ -65,7 +65,8 @@ const Home = (props: React.ComponentProps<any>) => {
         <style jsx>{`
             .other-sections {
                 display: flex;
-                flex-direction: row;
+                /* flex-direction: row; */
+                flex-flow: row wrap; 
                 margin-top: 8px;
                 margin-bottom: 26px;
             }

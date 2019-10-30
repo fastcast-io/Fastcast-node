@@ -82,8 +82,11 @@ const Main = ({ Component, pageProps, children }: MainProps) => {
         align-items: center;
         justify-content: center;
         background: #F9F9F9 !important;
-        min-height: 100% !important;
-        max-height: 100% !important;
+        /* min-height: 50rem !important;
+        max-height: 100% !important; */
+        min-height: 50rem !important;
+        height: 50rem !important;    
+        max-height: 65rem !important;    
         min-width: 100% !important;
         max-width: 100% !important;
       }
@@ -93,6 +96,8 @@ const Main = ({ Component, pageProps, children }: MainProps) => {
         background: #FFFFFF !important;
         min-width: 80% !important;
         max-width: 80% !important;
+        height: 100% !important;
+        /* min-height: 50rem !important; */
       }
       `}</style>
       {isLoggedIn && <Footer />}
